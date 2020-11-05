@@ -1,4 +1,5 @@
 {% extends "layouts/main.njk" %}
+{% from "../mocks/map-offices.js" import offices %}
 
 {% block content %}
 
@@ -6,19 +7,20 @@
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Before you start</span>
     <form action="">
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-        {{ govukInput({
+      {% from "govuk/components/input/macro.njk" import govukSelect %}
+        {{ govukSelect({
+          id: "planning-department",
+          name: "planning-department",
           label: {
             text: "What is the name of the local planning department?",
             classes: "govuk-label--l",
             isPageHeading: true
           },
-          id: "local-planning-department",
-          name: "local-planning-department"
+          items:offices
         }) }}
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
-
+ 
         {{ govukButton({
           text: "Continue",
           type: "Submit"

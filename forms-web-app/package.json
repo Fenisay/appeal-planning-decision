@@ -16,6 +16,7 @@
     "./**/*.{js, json}": "npm run format"
   },
   "dependencies": {
+    "accessible-autocomplete": "^2.0.3",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "express": "~4.16.1",
@@ -38,7 +39,7 @@
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.6.1",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.6", 
     "pino-pretty": "^4.3.0",
     "prettier": "^2.1.2"
   }
