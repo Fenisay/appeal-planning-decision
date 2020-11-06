@@ -1,4 +1,4 @@
-APPS = data appeals-service-api forms-web-app
+APPS = common data appeals-service-api forms-web-app
 
 down:
 	docker-compose down
