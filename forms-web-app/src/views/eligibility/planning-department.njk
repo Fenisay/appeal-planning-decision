@@ -1,32 +1,28 @@
 {% extends "layouts/main.njk" %}
-{% from "../mocks/map-offices.js" import offices %}
+<script>
+  const countries = [
+    'France',
+    'Germany',
+    'United Kingdom'
+  ];
+</script>
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Before you start</span>
-    <form action="">
-      {% from "govuk/components/input/macro.njk" import govukSelect %}
-        {{ govukSelect({
-          id: "planning-department",
-          name: "planning-department",
-          label: {
-            text: "What is the name of the local planning department?",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          items:offices
-        }) }}
-
-        {% from "govuk/components/button/macro.njk" import govukButton %}
- 
-        {{ govukButton({
-          text: "Continue",
-          type: "Submit"
-        }) }}
-      </form>
+      <label for="my-autocomplete">Select your country</label>
+      <div id="my-autocomplete-container"></div>
   </div>
 </div>
+
+<script>
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
 
 {% endblock %}

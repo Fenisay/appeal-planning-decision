@@ -1,0 +1,72 @@
+{% extends "layouts/main.njk" %}
+<script>import accessibleAutocomplete from 'accessible-autocomplete'</script>
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Before you start</span>
+    <form action="">
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
+        {{ govukSelect({
+          id: "planning-department",
+          name: "planning-department",
+          label: {
+            text: "What is the name of the local planning department?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+            items: [
+                    {
+                      value: "buckingham-council",
+                      text: "Buckinghamshire Council"
+                    },
+                    {
+                      value: "chiltern-district-council",
+                      text: "Chiltern District Council"
+                    },
+                    {
+                      value: "somerset-west-and-taunton",
+                      text: "Somerset West and Taunton Council"
+                    },
+                    {
+                      value: "west-suffolk",
+                      text: "West Suffolk Council"
+                    },
+                     {
+                      value: "south-bucks",
+                      text: "South Bucks District Council"
+                    },
+                    {
+                      value: "wycombe",
+                      text: "Wycombe District Council"
+                    },
+                    {
+                      value: "bournemouth-christchurch-and-poole",
+                      text: "Bournemouth, Christchurch and Poole"
+                    },
+                    {
+                      value: "dorset-council",
+                      text: "Dorset Council"
+                    }                   
+                  ]
+        }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+ 
+        {{ govukButton({
+          text: "Continue",
+          type: "Submit"
+        }) }}
+      </form>
+  </div>
+</div>
+
+<script>
+  accessibleAutocomplete.enhanceSelectElement({
+  selectElement: document.querySelector('#planning-department'),
+  minLength: 3
+  })
+</script>
+
+{% endblock %}
